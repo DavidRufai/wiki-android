@@ -18,5 +18,8 @@ allprojects {
         google()
         mavenCentral()
         mavenLocal()
+        maven {
+            url "https://repo.pointzi.com/sdk/pointzi"
+        }
     }
 }
