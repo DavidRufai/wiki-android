@@ -270,20 +270,23 @@ dependencies {
     implementation "androidx.room:room-rxjava3:$roomVersion"
 
     // For language detection during editing
-    prodImplementation "com.google.mlkit:language-id:$mlKitVersion"
-    betaImplementation "com.google.mlkit:language-id:$mlKitVersion"
-    alphaImplementation "com.google.mlkit:language-id:$mlKitVersion"
-    devImplementation "com.google.mlkit:language-id:$mlKitVersion"
-    customImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    implementation "com.google.mlkit:language-id:$mlKitVersion"
+    implementation "com.google.mlkit:language-id:$mlKitVersion"
+    implementation "com.google.mlkit:language-id:$mlKitVersion"
+    implementation "com.google.mlkit:language-id:$mlKitVersion"
+    implementation "com.google.mlkit:language-id:$mlKitVersion"
 
     // For receiving push notifications for logged-in users.
-    prodImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
-    betaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
-    alphaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
-    devImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
-    customImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    implementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    implementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    implementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    implementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    implementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
 
 
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation "com.github.skydoves:balloon:1.2.7"
+    implementation 'me.relex:circleindicator:2.1.6'
     prodDemoImplementation(group: "com.pointzi", name: "pointzi", version: pzProdVersion)
     prodBisonImplementation(group: "com.pointzi", name: "pointzi", version: pzProdVersion)
     prodZebraImplementation(group: "com.pointzi", name: "pointzi", version: pzProdVersion)
