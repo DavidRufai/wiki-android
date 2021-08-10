@@ -4,10 +4,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.db.PageImage;
 
 @RunWith(RobolectricTestRunner.class) public class ParcelableTest {
     @Test public void testPageTitle() throws Throwable {
@@ -28,15 +29,15 @@ import org.wikipedia.pageimages.PageImage;
         TestParcelUtil.test(props);
     }
 
-    @Test public void testHistoryEntry() throws Throwable {
-        WikiSite wiki = WikiSite.forLanguageCode("en");
-        PageTitle title = new PageTitle("Talk", "India", wiki);
-        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-
-        TestParcelUtil.test(historyEntry);
+    @Test public void testPagePropertiesFromSummary() throws Throwable {
+        String json = TestFileUtil.readRawFile("rb_page_summary_geo.json");
+        PageSummary summary = GsonUnmarshaller.unmarshal(PageSummary.class, json);
+        PageProperties props = new PageProperties(summary);
+        TestParcelUtil.test(props);
     }
 
-    @Test public void testPageImage() throws Throwable {
+    @Test
+    public void testPageImage() throws Throwable {
         WikiSite wiki = WikiSite.forLanguageCode("en");
         PageTitle title = new PageTitle("Talk", "India", wiki);
         PageImage pageImage = new PageImage(title, "Testing image");

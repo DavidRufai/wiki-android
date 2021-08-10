@@ -1,11 +1,10 @@
 package org.wikipedia.json;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
-import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.util.log.L;
 
@@ -21,7 +20,7 @@ public final class TabUnmarshaller {
             object = GsonUnmarshaller.unmarshal(TYPE_TOKEN, json);
         } catch (Exception e) {
             // Catch all. Any Exception can be thrown when unmarshalling.
-            L.logRemoteErrorIfProd(new RemoteLogException(e).put("json", json));
+            L.e(e);
         }
         if (object == null) {
             object = Collections.emptyList();
